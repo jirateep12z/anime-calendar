@@ -1,0 +1,34 @@
+# dependencies
+node_modules/
+
+# build
+.next/
+
+# coverage
+coverage/
+
+# lock_files
+*.lock
+*.lockb
+package-lock.json
+pnpm-lock.yaml
+
+# minified
+*.min.js
+*.min.css
+
+# environment
+.env
+.env.*
+!.env.example
+!supabase/.env.example
+
+# generated secrets
+vapid-output/
+
+# logs
+logs/
+*.log
+
+# ide
+.DS_Store
