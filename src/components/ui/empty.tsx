@@ -1,0 +1,92 @@
+import {
+  empty_media_variants,
+  type EmptyMediaVariantsProps
+} from '@/components/ui/empty-variants';
+import { Cn } from '@/lib/utils';
+
+function Empty({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="empty"
+      className={Cn(
+        'flex w-full min-w-0 flex-1 flex-col items-center justify-center gap-4 rounded-lg border-dashed p-12 text-center text-balance',
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function EmptyHeader({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="empty-header"
+      className={Cn('flex max-w-sm flex-col items-center gap-2', className)}
+      {...props}
+    />
+  );
+}
+
+function EmptyMedia({
+  className,
+  variant = 'default',
+  ...props
+}: React.ComponentProps<'div'> & EmptyMediaVariantsProps) {
+  return (
+    <div
+      data-slot="empty-icon"
+      data-variant={variant}
+      className={Cn(empty_media_variants({ variant, className }))}
+      {...props}
+    />
+  );
+}
+
+function EmptyTitle({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="empty-title"
+      className={Cn(
+        'font-heading text-lg font-medium tracking-tight',
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function EmptyDescription({ className, ...props }: React.ComponentProps<'p'>) {
+  return (
+    <div
+      data-slot="empty-description"
+      className={Cn(
+        'text-muted-foreground [&>a:hover]:text-primary text-sm/relaxed [&>a]:underline [&>a]:underline-offset-4',
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+function EmptyContent({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="empty-content"
+      className={Cn(
+        'flex w-full max-w-sm min-w-0 flex-col items-center gap-4 text-sm text-balance',
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+export {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  empty_media_variants as emptyMediaVariants,
+  EmptyTitle
+};
