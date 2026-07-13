@@ -1,0 +1,7 @@
+# Supabase
+.temp
+
+# environment
+.env
+.env.*
+!.env.example
