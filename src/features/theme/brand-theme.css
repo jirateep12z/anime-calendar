@@ -1,0 +1,90 @@
+/*
+ * Brand theme (docs/specs/0001, Revision 2): neutral shadcn defaults from
+ * globals.css with green as the primary color. Declared on <body>, so
+ * portaled dialogs, sheets and tooltips inherit it as well.
+ */
+.brand-theme {
+  --primary: oklch(0.527 0.154 150.069);
+  --primary-foreground: oklch(0.985 0 0);
+  --ring: oklch(0.527 0.154 150.069);
+  --sidebar-primary: oklch(0.527 0.154 150.069);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-ring: oklch(0.527 0.154 150.069);
+  --brand-on-air: oklch(0.527 0.154 150.069);
+  --status-upcoming: oklch(0.145 0 0);
+  --status-airing: oklch(0.448 0.119 151.328);
+  --status-aired: oklch(0.439 0 0);
+  --schedule-rail: oklch(0.87 0 0);
+}
+
+.dark .brand-theme {
+  --primary: oklch(0.723 0.219 149.579);
+  --primary-foreground: oklch(0.205 0 0);
+  --ring: oklch(0.723 0.219 149.579);
+  --sidebar-primary: oklch(0.723 0.219 149.579);
+  --sidebar-primary-foreground: oklch(0.205 0 0);
+  --sidebar-ring: oklch(0.723 0.219 149.579);
+  --brand-on-air: oklch(0.723 0.219 149.579);
+  --status-upcoming: oklch(0.985 0 0);
+  --status-airing: oklch(0.723 0.219 149.579);
+  --status-aired: oklch(0.708 0 0);
+  --schedule-rail: oklch(0.371 0 0);
+}
+
+/*
+ * Always-dark "broadcast screen" surface, used by the calendar hero.
+ * Mirrors the `.dark` tokens in globals.css (including status colors) so it
+ * stays readable while the page is in light mode.
+ */
+.brand-screen {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.723 0.219 149.579);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.723 0.219 149.579);
+  --brand-on-air: oklch(0.723 0.219 149.579);
+  --status-upcoming: oklch(0.985 0 0);
+  --status-airing: oklch(0.723 0.219 149.579);
+  --status-aired: oklch(0.708 0 0);
+  --status-adult: #ff8c99;
+  --schedule-rail: oklch(0.371 0 0);
+  color-scheme: dark;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@keyframes on-air-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* Unlayered so it wins over Tailwind utilities that set a background. */
+.on-air-dot {
+  border-radius: 9999px;
+  background-color: var(--brand-on-air);
+  animation: on-air-pulse 1600ms ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .on-air-dot {
+    animation: none;
+  }
+}

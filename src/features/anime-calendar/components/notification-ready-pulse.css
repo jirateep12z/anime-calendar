@@ -1,0 +1,20 @@
+@keyframes notification-ready-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.notification-ready-pulse {
+  animation: notification-ready-pulse 420ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notification-ready-pulse {
+    animation: none;
+  }
+}
